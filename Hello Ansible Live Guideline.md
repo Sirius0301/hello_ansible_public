@@ -660,6 +660,7 @@ ansible all  -m shell -a "history | wc -l" > rank.txt
 7. ansible服务部署与使用: https://www.cnblogs.com/clsn/p/7743792.html
 8. ansible 自动化运维详解 https://www.cnblogs.com/keerya/p/7987886.html 
 9. 一步到位玩儿透Ansible https://www.cnblogs.com/f-ck-need-u/p/7576137.html#ansible
+10. Static Web With Nginx: https://www.redhat.com/sysadmin/deploying-static-website-ansible
 
 ---
 End
