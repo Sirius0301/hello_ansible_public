@@ -1,0 +1,19 @@
+---
+- hosts: group1
+  remote_user: root
+  tasks:
+
+    - name: install nginx
+      yum: name=nginx state=present
+    - name: copy nginx.conf
+      copy: src=/tmp/nginx.conf dest=/etc/nginx/nginx.conf backup=yes
+      notify: reload #it the action above change, notify the handlers
+      tags: reloadnginx # tag
+    - name: start nginx service
+      service: name=nginx state=started
+      tags: startnginx # tag
+
+  handlers: #if the action above notify change, hanndlers will be trigger
+    - name: reload
+      service: name=nginx state=restarted # show in processor
+...

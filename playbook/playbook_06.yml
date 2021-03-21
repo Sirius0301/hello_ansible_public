@@ -1,0 +1,9 @@
+- hosts: group1
+  tasks:
+    - setup: "filter=*eth*"
+      register: say_hi
+    - debug:
+        var: say_hi
+    - set_fact: var1="{{say_hi.ansible_facts.ansible_eth0.module}}"
+    - set_fact: var2="your name is"
+    - debug: msg="{{var2}} {{var1}}"

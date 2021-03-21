@@ -1,0 +1,26 @@
+---
+- hosts: group1
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+    - name: Install configure file
+      copy:
+        src: /home/hello_ansible/shell/httpd.conf
+        dest: /etc/httpd/conf/
+      notify: restart httpd
+    - name: ensure apache is running
+      service:
+        name: httpd 
+        state: started 
+        enabled: yes
+
+      
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted
+...

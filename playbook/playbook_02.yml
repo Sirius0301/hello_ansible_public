@@ -1,0 +1,12 @@
+- hosts: 10.0.1.54
+  remote_user: root
+  tasks:
+    - name: copy initial_ansible.sh
+      copy: 
+        src: /home/hello_ansible/shell/initial_ansible.sh
+        dest: /home
+        mode: 700
+    - name: excute initial_ansible.sh
+      shell:
+        cmd: yes Yes | /home/initial_ansible.sh
+        executable: /bin/bash

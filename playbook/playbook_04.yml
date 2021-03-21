@@ -1,0 +1,4 @@
+- hosts: 10.0.1.54
+  tasks:
+    - debug:
+        var: ansible_facts

@@ -1,0 +1,8 @@
+---
+#test connection yaml file
+- hosts: group1
+  remote_user: root
+  tasks:
+    - name: test connection
+      ping:
+...
